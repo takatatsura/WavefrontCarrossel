@@ -281,7 +281,7 @@ void calculaWaveFront(int objx, int objy, int objangulo, bool ignoraAdversario, 
     // Inicia o campo
     inicializaWaveFront();
     
-    if (ignora){
+    if (!ignora){
         // Coloca os robos existentes no campo como obstaculos
         for(int robo = NUM_ROBOS_TIME + 1; robo < NUM_ROBOS_TIME * 2 + 1; robo++){
             for(int i = estado[robo].x - 3; i < estado[robo].x + 3; i++){
@@ -327,6 +327,12 @@ void calculaWaveFront(int objx, int objy, int objangulo, bool ignoraAdversario, 
                 // std::cout << "Terminou o WaveFront2" << '\n';
             }
         } while (!convergiu);
+    }
+    
+    for (int i = 0; i < 170; i++) {
+        for (int j = 0; j < 130; j++){
+            mapa[i][j] = campo[i][j];
+        }
     }
 }
 
